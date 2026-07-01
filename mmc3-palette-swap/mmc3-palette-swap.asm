@@ -97,8 +97,8 @@ next_step:  .res 2
 .segment "RESET"
 
 .proc reset_handler
+  SEI ; SEt Interrupt ignore bit (IRQ disable)
   set APUCOUNT, #$40
-  CLI ; CLear Interrupt disable
   CLD ; CLear Decimal mode bit (BCD disable)
 
   ; turn off NMIs and disable rendering
@@ -106,16 +106,27 @@ next_step:  .res 2
   STX PPUCTRL
   STX PPUMASK
 
+  ; disable mmc3 irqs
+  mmc3_disable_irq
+
+  ; set horizontal mirror
+  mmc3_set_horizontal_mirror
+
+  ; set chr banks
+  mmc3_bank_switch_chr_2k
+
   clear_ram
 
+  ; initialize stack
+  LDX #$FF
+  TXS
+
+  BIT PPUSTATUS
   wait_for_vblank
   wait_for_vblank
 
   ; write palettes
   write_palettes palette, #16
-
-  ; set horizontal mirror
-  mmc3_set_horizontal_mirror
 
   ; fill the first nametable
   set_ppu_addr $2000
@@ -203,6 +214,8 @@ next_step:  .res 2
 
   ; turn on NMIs, sprites use second pattern table, backgrounds first
   set PPUCTRL, #%10001000
+
+  CLI ; CLear Interrupt disable
 
   JMP main
 .endproc
