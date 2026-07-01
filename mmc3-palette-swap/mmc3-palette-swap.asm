@@ -2,8 +2,8 @@
 .include "mmc3-registers.asm"
 .include "ppu.asm"
 
-.segment "HEADER" ; MMC3 (mapper 4, 64k PRG [16 banks], 16k CHR)
-.byte $4E, $45, $53, $1A, $04, $01, $40, $00
+.segment "HEADER" ; 32K PRG, 8K CHR, mapper 4 (MMC3)
+.byte $4E, $45, $53, $1A, $02, $01, $40, $00
 
 .segment "CHR"
 .incbin "tiles.chr"
