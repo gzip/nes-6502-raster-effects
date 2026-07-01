@@ -76,8 +76,6 @@ game_state: .res 1
 
 .proc nmi_handler
 
-  disable_rendering
-
   ; reset backgrounds and sprites to first table, enable NMIs
   set PPUCTRL, #%10000000
 
@@ -90,7 +88,6 @@ game_state: .res 1
 
   ; restore ppu addr
   set_ppu_addr $2000
-
   enable_rendering
 
   set game_state, #0
