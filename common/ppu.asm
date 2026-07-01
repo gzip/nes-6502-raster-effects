@@ -173,15 +173,17 @@ APUCOUNT  = $4017
     LDA src,X
     STA PPUDATA
     INX
-    CPX ct
+    .ifnblank ct
+      CPX ct
+    .endif
     BNE copy_loop
 .endmacro
 
 .macro write_nametable src
-  write_loop_ppu src,       #$00
-  write_loop_ppu {src+256}, #$00, 1
-  write_loop_ppu {src+512}, #$00, 1
-  write_loop_ppu {src+768}, #$00, 1
+  write_loop_ppu src
+  write_loop_ppu {src+256},,1
+  write_loop_ppu {src+512},,1
+  write_loop_ppu {src+768},,1
 .endmacro
 
 .macro fill_nametable val
