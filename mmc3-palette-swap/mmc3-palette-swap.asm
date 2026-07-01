@@ -182,6 +182,20 @@ next_step:  .res 2
   BNE :-
 .endif
 
+.ifdef TILED_COLUMN
+  ; overlay a column of varied tiles for this example,
+  ; which helps to verify glitching behavior in left column
+  set PPUCTRL, #%00000100
+  set_ppu_addr $2000
+  LDX #30
+: TXA
+  SEC
+  SBC #$F5
+  STA PPUDATA
+  DEX
+  BNE :-
+.endif
+
 .ifdef VERTICAL_MIRROR
   ; set vertical mirror
   mmc3_set_vertical_mirror
