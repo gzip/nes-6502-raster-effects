@@ -35,6 +35,7 @@ game_state: .res 1
 .segment "CODE"
 
 .proc reset_handler
+
   set APUCOUNT, #$40
   SEI ; SEt Interrupt disable
   CLD ; CLear Decimal mode bit (BCD disable)
@@ -44,7 +45,14 @@ game_state: .res 1
   STX PPUCTRL
   STX PPUMASK
 
+  BIT PPUSTATUS
+  wait_for_vblank
+
   clear_ram
+
+  ; initialize stack
+  LDX #$FF
+  TXS
 
   wait_for_vblank
 
@@ -53,8 +61,6 @@ game_state: .res 1
 
   ; copy sprite 0 into oam
   mem_copy sprite_0, $0200, #04
-
-  wait_for_vblank
 
   ; fill the nametable and attribute table
   set_ppu_addr $2000
