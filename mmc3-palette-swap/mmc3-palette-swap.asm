@@ -232,7 +232,7 @@ RTI
 change_pal_00:
 
   ; delay until late in the next scanline
-  delay #$11, 1
+  delay #$10, 1
 
   set_palette_color #$00, #$40, #$06, change_pal_01
 
@@ -242,7 +242,7 @@ RTI
 change_pal_01:
 
   ; delay until late in the next scanline
-  delay #$11,, 1
+  delay #$10, 3
 
   set_palette_color #$00, #$60, #$0E, change_pal_02
 
@@ -253,7 +253,7 @@ RTI
 change_pal_02:
 
   ; delay until late in the next scanline
-  delay #$11,, 1
+  delay #$10, 3
 
   set_palette_color #$00, #$A0, #$06, change_pal_03
 
@@ -263,7 +263,7 @@ RTI
 change_pal_03:
 
   ; delay until late in the next scanline
-  delay #$11,, 1
+  delay #$10, 3
 
   set_palette_color #$00, #$C0, #$0E, change_pal_04
 
@@ -273,7 +273,7 @@ RTI
 change_pal_04:
 
   ; delay until late in the next scanline
-  delay #$11,, 1
+  delay #$10,, 1
 
   set_palette_color #$01, #$00, #$0E, change_pal_05
 
@@ -283,7 +283,7 @@ RTI
 change_pal_05:
 
   ; delay until late in the next scanline
-  delay #$11,, 1
+  delay #$11, 1
 
   set_palette_color #$01, #$40, #$0E, change_pal_06
 
@@ -294,7 +294,7 @@ RTI
 change_pal_06:
 
   ; delay until late in the next scanline
-  delay #$11,, 1
+  delay #$10, 3
 
   set_palette_color #$01, #$80, #$0E, change_pal_07
 
@@ -304,7 +304,7 @@ RTI
 change_pal_07:
 
   ; delay until late in the next scanline
-  delay #$10, 4
+  delay #$10, 3
 
   set_palette_color #$01, #$C0, #$16, change_pal_08
 
@@ -314,7 +314,7 @@ RTI
 change_pal_08:
 
   ; delay until late in the next scanline
-  delay #$11,, 1
+  delay #$10,, 1
 
   set_palette_color #$02, #$20, #$0E, change_pal_09
 
@@ -324,7 +324,7 @@ RTI
 change_pal_09:
 
   ; delay until late in the next scanline
-  delay #$11,, 1
+  delay #$11, 1
 
   set_palette_color #$02, #$60, #$0E, change_pal_0A
 
@@ -335,7 +335,7 @@ RTI
 change_pal_0A:
 
   ; delay until late in the next scanline
-  delay #$11,, 1
+  delay #$11
 
   set_palette_color #$02, #$A0, #$0E, change_pal_0B
 
@@ -345,7 +345,7 @@ RTI
 change_pal_0B:
 
   ; delay until late in the next scanline
-  delay #$11,, 1
+  delay #$10, 3
 
   set_palette_color #$02, #$E0, #$06, change_pal_0C
 
@@ -355,7 +355,7 @@ RTI
 change_pal_0C:
 
   ; delay until late in the next scanline
-  delay #$11,, 1
+  delay #$10, 3
 
   set_palette_color #$03, #$00, #$0E, change_pal_0D
 
@@ -365,7 +365,7 @@ RTI
 change_pal_0D:
 
   ; delay until late in the next scanline
-  delay #$11,, 1
+  delay #$10, 3
 
   set_palette_color #$03, #$40, #$06, change_pal_0E
 
@@ -376,7 +376,7 @@ RTI
 change_pal_0E:
 
   ; delay until late in the next scanline
-  delay #$11,, 1
+  delay #$10, 3
 
   set_palette_color #$03, #$60, #$06, change_pal_0F
 
@@ -386,7 +386,7 @@ RTI
 change_pal_0F:
 
   ; delay until late in the next scanline
-  delay #$11,, 1
+  delay #$10, 3
 
   set_palette_color #$03, #$80, #$01, disable_irq
 RTI
